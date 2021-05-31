@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import config from '../config.json';
 import { isAuthenticated, isAdmin } from '../services/auth';
 
-import Header from './Header';
+import Footer from '../components/Footer';
 
 const ContainerPage = styled.div`
     min-height: 100vh;
-    background: ${config.colors.primaryBackground};
+    background-color: ${config.colors.primaryBackground};
 `;
 
 const HomePage = () => {
@@ -31,11 +31,11 @@ const HomePage = () => {
     }, []);*/
 
     return (
-        <>
-            <ContainerPage>
-                <Header />
-            </ContainerPage>
-        </>
+        <ContainerPage>
+            <p>oi</p>
+            <p>oi</p>
+            <Footer />
+        </ContainerPage>
     );
 }
 
