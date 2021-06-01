@@ -10,8 +10,8 @@ const StyledFooter = styled.footer`
     text-align: center;
 
     font-family: 'Montserrat';
-    background-color: ${config.colors.secondaryTitle};
     color: white;
+    background-color: ${config.colors.secondaryTitle};
 
     font-size: 18px;
     height: 65px;

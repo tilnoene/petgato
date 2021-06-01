@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import config from '../config.json';
 import { isAuthenticated, isAdmin } from '../services/auth';
 
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const ContainerPage = styled.div`
@@ -32,6 +33,7 @@ const HomePage = () => {
 
     return (
         <ContainerPage>
+            <Navbar />
             <p>oi</p>
             <p>oi</p>
             <Footer />
