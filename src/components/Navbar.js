@@ -17,7 +17,10 @@ const ContainerNavbar = styled.div`
     font-family: 'Montserrat';
 
     height: 90px;
-    font-size: 10px;
+
+    @media(max-width: 1280px) {
+        height: 80px;
+    }
 `;
 
 const ContainerMenu = styled.div`
@@ -40,6 +43,10 @@ const Option = styled.p`
     }
 
     font-size: 24px;
+
+    @media(max-width: 1280px) {
+        font-size: 20px;
+    }
 `;
 
 const PetgatoLogo = styled.img`
