@@ -9,14 +9,20 @@ const Input = styled.input`
     background: none;
     padding: 12px;
     border-radius: 3px;
-    width: 250px;
+    width: ${props => props.width || '220px'};
     outline: none;
     font-size: 14px;
     transition: border-color 0.3 ease;
 
+    &:-webkit-input-placeholder, 
+    &:-ms-input-placeholder,
+    &:-moz-placeholder {
+        font-family: 'Montserrat';
+    }
+
     &:focus {
         border-color: ${config.colors.primaryTitle};
-        //transition-delay: 0.1s;
+        transition-delay: 0.1s;
     }
 `;
 
@@ -28,8 +34,18 @@ const Label = styled.label`
     margin-bottom: 5px;
     cursor: text;
 
-    ${Input}:focus & {
-        background-color: blue;
+    & input:valid + span,
+    & input:focus + span {
+        top: 33%;
+        font-size: 10px;
+        color: ${config.colors.primaryTitle};
+        background: ${config.colors.secondaryBackground};
+    }
+
+    & input:valid + span,
+    & input:focus + span {
+        padding: 0 5px;
+        left: 8px;
     }
 `;
 
@@ -43,20 +59,13 @@ const Span = styled.span`
         top 0.3s ease,
         font-size 0.3s ease,
         color 0.3s ease;
-
-    ${Input}:focus & {
-        top: 20px;
-        font-size: 100px;
-        color: #BA66A3;
-        background: #FBE9F6;
-        padding: 0 5px;
-    }
 `;
 
 const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false }) => {
     return (
         <Label>
             <Input 
+                required
                 type={password ? 'password' : 'text'}
                 disabled={disabled}
                 value={value}
