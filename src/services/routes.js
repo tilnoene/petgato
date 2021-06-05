@@ -1,10 +1,11 @@
 //import { useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch/*, Redirect*/ } from 'react-router-dom';
 
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
 import RecoveryPage from '../pages/RecoveryPage';
+import AboutPage from '../pages/AboutPage';
 
 /*
 const PrivateRoute = ({ component: Component, ... rest}) => {
@@ -43,6 +44,7 @@ const Routes = () => (
             <Route exact path='/login' component={() => <LoginPage />} />
             <Route exact path='/cadastro' component={() => <SignUpPage />} />
             <Route exact path='/recuperar-senha' component={() => <RecoveryPage />} />
+            <Route exact path='/sobre' component={() => <AboutPage />} />
             {/*
             <Route exact path='/login' component={() => <Login />} />
             <Route exact path='/cadastro' component={() => <Cadastro />} />

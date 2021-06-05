@@ -32,7 +32,8 @@ const Label = styled.label`
     font-size: 14px;
     padding-top: 20px;
     margin-bottom: 5px;
-    cursor: text;
+    cursor: text;     
+    user-select: none; 
 
     & input:valid + span,
     & input:focus + span {

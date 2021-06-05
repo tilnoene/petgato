@@ -64,7 +64,7 @@ const LoginPage = () => {
             <ContainerLeft />
 
             <ContainerRight>
-                <Link to='/'><img src={petgato_logo} /></Link>
+                <Link to='/'><img src={petgato_logo} alt='Logo PetGatô' /></Link>
 
                 <InputDiv>
                     <InputText name='Email' onChange={setEmail} value={email} />

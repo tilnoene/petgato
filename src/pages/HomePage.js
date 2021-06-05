@@ -1,8 +1,7 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import config from '../config.json';
-import { isAuthenticated, isAdmin } from '../services/auth';
+//import { isAuthenticated, isAdmin } from '../services/auth';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
