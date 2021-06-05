@@ -59,7 +59,7 @@ const ContainerIcons = styled.div`
     }
 `;
 
-const AboutPage = () => {
+const About = () => {
     return (
         <ContainerPage>
             <Navbar currentPage={2} />
@@ -92,4 +92,4 @@ const AboutPage = () => {
     );
 }
 
-export default AboutPage;
+export default About;

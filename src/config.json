@@ -8,6 +8,7 @@
         "primaryTitle": "#BA66A3",
         "secondaryTitle": "#C882B4",
         "primaryText": "#444143",
-        "secondaryText": "#707070"
+        "secondaryText": "#707070",
+        "primaryBorder": "#c5a5bc"
     }
 }

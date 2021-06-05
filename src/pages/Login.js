@@ -8,7 +8,7 @@ import ButtonPink from '../components/ButtonPink';
 import TextPink from '../components/TextPink';
 import TextBlack from '../components/TextBlack';
 
-import recovery_cat from '../assets/images/recovery_cat.jpg';
+import login_cat from '../assets/images/login_cat.jpg';
 import petgato_logo from '../assets/petgato-logo-pink.svg';
 
 const ContainerPage = styled.div`
@@ -24,7 +24,7 @@ const ContainerPage = styled.div`
 
 const ContainerLeft = styled.div`
     width: 100%;
-    background: ${config.colors.secondaryTitle} url(${recovery_cat}) no-repeat scroll 50% 0%;
+    background: ${config.colors.secondaryTitle} url(${login_cat}) no-repeat scroll 0% 0%;
     background-size: cover;
 `;
 
@@ -48,15 +48,6 @@ const ContainerRight = styled.div`
 const InputDiv = styled.div`
     display: flex;
     flex-direction: column;
-
-    p {
-        padding: 0;
-        margin: 0;
-        font-family: 'Montserrat';
-        font-size: 12px;
-        text-align: center;
-        color: ${config.colors.secondaryText};
-    }
 `;
 
 const TextDiv = styled.div`
@@ -64,8 +55,9 @@ const TextDiv = styled.div`
     gap: 5px;
 `;
 
-const RecoveryPage = () => {
+const Login = () => {
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <ContainerPage>
@@ -76,15 +68,12 @@ const RecoveryPage = () => {
 
                 <InputDiv>
                     <InputText name='Email' onChange={setEmail} value={email} />
-                    <p>Insira seu email para recuperar a senha</p>
+                    <InputText name='Senha' password onChange={setPassword} value={password} />
                 </InputDiv>
 
-                <ButtonPink>RECUPERAR SENHA</ButtonPink>
+                <ButtonPink>ENTRAR</ButtonPink>
 
-                <TextDiv>
-                    <TextBlack>Lembrou a senha?</TextBlack>
-                    <TextPink><Link to='/login'>Faça login</Link></TextPink>
-                </TextDiv>
+                <TextPink><Link to='/recuperar-senha'>Esqueci minha senha</Link></TextPink>
                 <TextDiv>
                     <TextBlack>Ainda não tem conta?</TextBlack>
                     <TextPink><Link to='/cadastro'>Crie sua conta</Link></TextPink>
@@ -94,4 +83,4 @@ const RecoveryPage = () => {
     );
 }
 
-export default RecoveryPage;
+export default Login;

@@ -11,7 +11,7 @@ const ContainerPage = styled.div`
     background-color: ${config.colors.primaryBackground};
 `;
 
-const HomePage = () => {
+const Home = () => {
     // colocar isso no Header...
     // esperar o header carregar ou então não, carregar o padrão mesmo enquanto os dados não chegam
 
@@ -41,4 +41,4 @@ const HomePage = () => {
     );
 }
 
-export default HomePage;
+export default Home;

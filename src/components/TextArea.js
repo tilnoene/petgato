@@ -2,23 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import config from '../config.json';
 
-const Input = styled.input`
-    border: 2px solid ${config.colors.primaryBorder};
+const TextArea = styled.textarea`
+    border: 2px solid #c5a5bc;
     -webkit-appearance: none;
     appearance: none;
     background: none;
     padding: 12px;
     border-radius: 3px;
     width: ${props => props.width || '220px'};
+    height: 180px;
     outline: none;
     font-size: 14px;
     transition: border-color 0.3 ease;
     box-sizing: border-box;
+    resize: none;
     font-family: 'Montserrat';
 
     &:focus {
         border-color: ${config.colors.primaryTitle};
         transition-delay: 0.1s;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #F0F0F0;
     }
 `;
 
@@ -31,16 +38,16 @@ const Label = styled.label`
     cursor: text;     
     user-select: none; 
 
-    & input:valid + span,
-    & input:focus + span {
-        top: 33%;
+    & textarea:valid + span,
+    & textarea:focus + span {
+        top: -385%;
         font-size: 10px;
         color: ${config.colors.primaryTitle};
         background-color: ${props => props.labelColor || config.colors.secondaryBackground};
     }
 
-    & input:valid + span,
-    & input:focus + span {
+    & textarea:valid + span,
+    & textarea:focus + span {
         padding: 0 5px;
         left: 8px;
     }
@@ -49,7 +56,7 @@ const Label = styled.label`
 const Span = styled.span`
     position: absolute;
     left: 12px;
-    top: calc(50% + 10px);
+    top: calc(150% - 180px);
     transform: translateY(-50%);
     color: #c5a5bc;
     transition: 
@@ -58,10 +65,10 @@ const Span = styled.span`
         color 0.3s ease;
 `;
 
-const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false, width=null, labelColor=null }) => {
+const TextAreaText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false, width=null, labelColor=null }) => {
     return (
         <Label labelColor={labelColor} >
-            <Input 
+            <TextArea 
                 required
                 type={password ? 'password' : 'text'}
                 disabled={disabled}
@@ -69,10 +76,12 @@ const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=fa
                 maxLength={maxLength}
                 onChange={e => onChange(e.target.value)}
                 width={width}
+                rows="4"
+                col="50"
             />
             <Span>{name}</Span>
         </Label>
     );
 }
 
-export default InputText;
+export default TextAreaText;

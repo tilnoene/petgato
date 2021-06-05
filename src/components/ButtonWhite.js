@@ -4,8 +4,7 @@ import config from '../config.json';
 
 const Button = styled.button`
     height: 40px;
-    padding: 0 22px;
-    border: none;
+    padding: 0 26px;
     border-radius: 4px;
     cursor: pointer;
     outline: none;
@@ -14,11 +13,12 @@ const Button = styled.button`
     font-size: 15px;
     font-weight: 400;
 
-    color: ${config.colors.primaryBackground};
-    background-color: ${config.colors.primaryTitle};
+    color: ${config.colors.secondaryText};
+    background-color: ${config.colors.primaryBackground};
+    border: 2px solid ${config.colors.primaryBorder};
 `;
 
-const ButtonPink = ({ children, onClick=null, disabled=false }) => {
+const ButtonWhite = ({ children, onClick=null, disabled=false }) => {
     return (
         <Button
             onClick={onClick}
@@ -29,4 +29,4 @@ const ButtonPink = ({ children, onClick=null, disabled=false }) => {
     );
 }
 
-export default ButtonPink;
+export default ButtonWhite;
