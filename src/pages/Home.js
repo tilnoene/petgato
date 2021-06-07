@@ -5,6 +5,7 @@ import config from '../config.json';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import InputText from '../components/InputText';
 
 const ContainerPage = styled.div`
     min-height: 100vh;
@@ -36,6 +37,7 @@ const Home = () => {
             <Navbar />
             <p>oi</p>
             <p>oi</p>
+            <InputText password />
             <Footer />
         </ContainerPage>
     );
