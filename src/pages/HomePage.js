@@ -6,6 +6,7 @@ import { isAuthenticated, isAdmin } from '../services/auth';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import InputText from '../components/InputText';
 
 const ContainerPage = styled.div`
     min-height: 100vh;
@@ -37,6 +38,7 @@ const HomePage = () => {
             <Navbar />
             <p>oi</p>
             <p>oi</p>
+            <InputText password />
             <Footer />
         </ContainerPage>
     );

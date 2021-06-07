@@ -36,13 +36,13 @@ const ContainerRight = styled.div`
     flex-direction: column;
     gap: 18px;
 
-    img {
-        width: 150px;
-        margin-bottom: -18px;
-        outline: none;
-    }
-
     background-color: ${config.colors.secondaryBackground};
+`;
+
+const PetGatoLogo = styled.img`
+    width: 150px;
+    margin-bottom: -18px;
+    outline: none;
 `;
 
 const InputDiv = styled.div`
@@ -66,7 +66,7 @@ const SignUpPage = () => {
             <ContainerLeft />
 
             <ContainerRight>
-                <Link to='/'><img src={petgato_logo} /></Link>
+                <Link to='/'><PetGatoLogo src={petgato_logo} /></Link>
 
                 <InputDiv>
                     <InputText name='Nome' onChange={setName} value={name} />

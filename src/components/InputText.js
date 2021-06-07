@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import config from '../config.json';
+
+import eye_icon from '../assets/eye.svg';
+import closed_eye_icon from '../assets/eye-blocked.svg';
 
 const Input = styled.input`
     border: 2px solid #c5a5bc;
@@ -61,18 +64,35 @@ const Span = styled.span`
         color 0.3s ease;
 `;
 
+const Icon = styled.img`
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    
+    margin-left: -40px;
+    margin-bottom: -8px;
+`;
+
 const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false }) => {
+    const [showPassword, setShowPassword] = useState(false);
+    
     return (
         <Label>
             <Input 
                 required
-                type={password ? 'password' : 'text'}
+                type={password ? (showPassword ? 'text' : 'password') : 'text'}
                 disabled={disabled}
                 value={value}
                 maxLength={maxLength}
                 onChange={e => onChange(e.target.value)}
             />
             <Span>{name}</Span>
+            {password && (
+                <Icon 
+                    src={showPassword ? closed_eye_icon : eye_icon} 
+                    onClick={() => setShowPassword(!showPassword)}
+                />
+            )}
         </Label>
     );
 }
