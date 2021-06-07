@@ -8,7 +8,7 @@ import ButtonPink from '../components/ButtonPink';
 import TextPink from '../components/TextPink';
 import TextBlack from '../components/TextBlack';
 
-import login_cat from '../assets/images/login_cat.jpg';
+import signup_cat from '../assets/images/signup_cat.jpg';
 import petgato_logo from '../assets/petgato-logo-pink.svg';
 
 const ContainerPage = styled.div`
@@ -24,7 +24,7 @@ const ContainerPage = styled.div`
 
 const ContainerLeft = styled.div`
     width: 100%;
-    background: ${config.colors.secondaryTitle} url(${login_cat}) no-repeat scroll 0% 0%;
+    background: ${config.colors.secondaryTitle} url(${signup_cat}) no-repeat scroll 60% 0%;
     background-size: cover;
 `;
 
@@ -55,32 +55,35 @@ const TextDiv = styled.div`
     gap: 5px;
 `;
 
-const LoginPage = () => {
+const SignUp = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
     return (
         <ContainerPage>
             <ContainerLeft />
 
             <ContainerRight>
-                <Link to='/'><PetGatoLogo src={petgato_logo} /></Link>
+                <Link to='/'><img src={petgato_logo} alt='Logo PetGatô' /></Link>
 
                 <InputDiv>
+                    <InputText name='Nome' onChange={setName} value={name} />
                     <InputText name='Email' onChange={setEmail} value={email} />
                     <InputText name='Senha' password onChange={setPassword} value={password} />
+                    <InputText name='Confirme sua senha' password onChange={setPasswordConfirmation} value={passwordConfirmation} />
                 </InputDiv>
 
-                <ButtonPink>ENTRAR</ButtonPink>
+                <ButtonPink>CADASTRAR</ButtonPink>
 
-                <TextPink><Link to='/recuperar-senha'>Esqueci minha senha</Link></TextPink>
                 <TextDiv>
-                    <TextBlack>Ainda não tem conta?</TextBlack>
-                    <TextPink><Link to='/cadastro'>Crie sua conta</Link></TextPink>
+                    <TextBlack>Já possui conta?</TextBlack>
+                    <TextPink><Link to='/login'>Faça login</Link></TextPink>
                 </TextDiv>
             </ContainerRight>
         </ContainerPage>
     );
 }
 
-export default LoginPage;
+export default SignUp;

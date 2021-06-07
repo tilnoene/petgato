@@ -1,10 +1,12 @@
 //import { useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch/*, Redirect*/ } from 'react-router-dom';
 
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
-import SignUpPage from '../pages/SignUpPage';
-import RecoveryPage from '../pages/RecoveryPage';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
+import Recovery from '../pages/Recovery';
+import About from '../pages/About';
+import Contact from '../pages/Contact';
 
 /*
 const PrivateRoute = ({ component: Component, ... rest}) => {
@@ -39,10 +41,12 @@ const BackofficeRoute = ({ component: Component, ... rest}) => {
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path='/' component={() => <HomePage />} />
-            <Route exact path='/login' component={() => <LoginPage />} />
-            <Route exact path='/cadastro' component={() => <SignUpPage />} />
-            <Route exact path='/recuperar-senha' component={() => <RecoveryPage />} />
+            <Route exact path='/' component={() => <Home />} />
+            <Route exact path='/login' component={() => <Login />} />
+            <Route exact path='/cadastro' component={() => <SignUp />} />
+            <Route exact path='/recuperar-senha' component={() => <Recovery />} />
+            <Route exact path='/sobre' component={() => <About />} />
+            <Route exact path='/contato' component={() => <Contact />} />
             {/*
             <Route exact path='/login' component={() => <Login />} />
             <Route exact path='/cadastro' component={() => <Cadastro />} />

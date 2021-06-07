@@ -1,8 +1,7 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import config from '../config.json';
-import { isAuthenticated, isAdmin } from '../services/auth';
+//import { isAuthenticated, isAdmin } from '../services/auth';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -13,7 +12,7 @@ const ContainerPage = styled.div`
     background-color: ${config.colors.primaryBackground};
 `;
 
-const HomePage = () => {
+const Home = () => {
     // colocar isso no Header...
     // esperar o header carregar ou então não, carregar o padrão mesmo enquanto os dados não chegam
 
@@ -44,4 +43,4 @@ const HomePage = () => {
     );
 }
 
-export default HomePage;
+export default Home;

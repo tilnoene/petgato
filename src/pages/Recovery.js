@@ -64,7 +64,7 @@ const TextDiv = styled.div`
     gap: 5px;
 `;
 
-const RecoveryPage = () => {
+const Recovery = () => {
     const [email, setEmail] = useState('');
 
     return (
@@ -72,7 +72,7 @@ const RecoveryPage = () => {
             <ContainerLeft />
 
             <ContainerRight>
-                <Link to='/'><PetGatoLogo src={petgato_logo} /></Link>
+                <Link to='/'><img src={petgato_logo} alt='Logo PetGatô' /></Link>
 
                 <InputDiv>
                     <InputText name='Email' onChange={setEmail} value={email} />
@@ -94,4 +94,4 @@ const RecoveryPage = () => {
     );
 }
 
-export default RecoveryPage;
+export default Recovery;

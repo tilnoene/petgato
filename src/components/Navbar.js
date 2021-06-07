@@ -60,7 +60,7 @@ const Navbar = ({ currentPage=1, backoffice=false }) => {
 
     return (
         <ContainerNavbar>
-            <Link to='/'><PetgatoLogo src={petgato_logo} /></Link>
+            <Link to='/'><PetgatoLogo src={petgato_logo} alt='Logo PetGatô' /></Link>
 
             {!backoffice ? (
                 <ContainerMenu>
@@ -68,7 +68,7 @@ const Navbar = ({ currentPage=1, backoffice=false }) => {
                     <Option selected={currentPage === 2} ><Link to='/sobre'>Sobre Nós</Link></Option>
                     <Option selected={currentPage === 3} ><Link to='/contato'>Fale Conosco</Link></Option>
                     
-                    <Option selected={currentPage === 3} ><Link to='/login'>Entrar</Link></Option>
+                    <Option selected={currentPage === 4} ><Link to='/login'>Entrar</Link></Option>
 
                 </ContainerMenu>
             ) : (
