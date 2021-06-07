@@ -70,7 +70,7 @@ const Icon = styled.img`
     margin-bottom: -8px;
 `;
 
-const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false }) => {
+const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false, width=null, labelColor=null }) => {
     const [showPassword, setShowPassword] = useState(false);
     
     return (
