@@ -32,7 +32,7 @@ const ContainerPage = styled.div`
 
 const ContentPage = styled.div`
     display: grid;
-    grid-template-columns: 23% 77%;
+    grid-template-columns: 275px auto;
     padding: 20px 0;
 `;
 
@@ -98,7 +98,7 @@ const ContainerIcons = styled.div`
     height: 25px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 
     img {
         width: 25px;
@@ -187,6 +187,7 @@ const Home = () => {
                         onChange={setSearchValue}
                         search
                         onClick={submitSearch}
+                        width='100%'
                     />
 
                     <AboutAuthor>
