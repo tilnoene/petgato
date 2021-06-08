@@ -4,6 +4,7 @@ import config from '../config.json';
 
 import eye_icon from '../assets/eye.svg';
 import closed_eye_icon from '../assets/eye-blocked.svg';
+import search_icon from '../assets/search-icon.svg';
 
 const Input = styled.input`
     border: 2px solid ${config.colors.primaryBorder};
@@ -63,14 +64,20 @@ const Span = styled.span`
 
 const Icon = styled.img`
     cursor: pointer;
-    width: 26px;
-    height: 26px;
+    width: 23px;
+    height: 23px;
     
-    margin-left: -40px;
-    margin-bottom: -8px;
+    margin-left: -36px;
+    margin-bottom: -7px;
+    
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 `;
 
-const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=false, password=false, width=null, labelColor=null }) => {
+const InputText = ({ name='', value='', maxLength=32, onChange=null, onClick=null, disabled=false, password=false, search=false, width=null, labelColor=null }) => {
     const [showPassword, setShowPassword] = useState(false);
     
     return (
@@ -89,6 +96,12 @@ const InputText = ({ name='', value='', maxLength=32, onChange=null, disabled=fa
                 <Icon 
                     src={showPassword ? closed_eye_icon : eye_icon} 
                     onClick={() => setShowPassword(!showPassword)}
+                />
+            )}
+            {search && (
+                <Icon 
+                    src={search_icon} 
+                    onClick={onClick}
                 />
             )}
         </Label>

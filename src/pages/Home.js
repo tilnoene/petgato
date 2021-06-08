@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import config from '../config.json';
 //import { isAuthenticated, isAdmin } from '../services/auth';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import InputText from '../components/InputText';
 import Preview from '../components/Preview';
 import Line from '../components/Line';
 
@@ -16,7 +17,6 @@ import twitter_icon from '../assets/twitter-icon.svg';
 const ContainerPage = styled.div`
     width: 100%;
     min-height: 100vh;
-    background-color: ${config.colors.primaryBackground || 'white'};
 
     display: grid;
     grid-template-rows: 90px calc(100% - 155px) 65px;
@@ -31,14 +31,12 @@ const ContainerPage = styled.div`
 `;
 
 const ContentPage = styled.div`
-    background-color: ${config.colors.primaryBackground || 'white'};
     display: grid;
     grid-template-columns: 23% 77%;
     padding: 20px 0;
 `;
 
 const ContentLeft = styled.div`
-    background-color: ${config.colors.primaryBackground || 'white'};
     padding: 0 25px;
     border-right: 1px solid lightgray;
 
@@ -142,10 +140,16 @@ const PreviewContainer = styled.div`
 `;
 
 const Home = () => {
-    const temp = {
+    const [searchValue, setSearchValue] = useState('');
+
+    const submitSearch = () => {
+        alert(searchValue);
+    }
+
+    const posts = [{
         id: 1,
         name: 'Testando o título',
-        content: '<p>Esse post é um <b>teste</b></p>',
+        content: '<p>Esse post é um <b>teste</b> apenas.</p>',
         views: 20,
         likes: 13,
         comments: 17,
@@ -156,13 +160,35 @@ const Home = () => {
             id: 2,
             name: 'Cães & Gatos'
         }]
-    };
+    }, {
+        id: 1,
+        name: 'Lê aqui em baixo',
+        content: '<p>Lê a barra de pesquisa</p>',
+        views: 20,
+        likes: 13,
+        comments: 17,
+        tags: [{
+            id: 1,
+            name: 'Erik Gay'
+        }, {
+            id: 2,
+            name: 'Cães & Caio'
+        }]
+    }];
 
     return (
         <ContainerPage>
             <Navbar />
             <ContentPage>
                 <ContentLeft>
+                    <InputText 
+                        name=''
+                        value={searchValue}
+                        onChange={setSearchValue}
+                        search
+                        onClick={submitSearch}
+                    />
+
                     <AboutAuthor>
                         <ProfilePicture />
                         <h2>SOBRE A AUTORA</h2>
@@ -190,9 +216,7 @@ const Home = () => {
                     <SubTitle>Seja bem-vinda(o) ao blog PetGatô! Confira nosso conteúdo mais recente:</SubTitle>
 
                     <PreviewContainer>
-                        <Preview post={temp}/>
-                        <Preview post={temp}/>
-                        <Preview post={temp}/>
+                        {posts.map(post => <Preview post={post} />)}
                     </PreviewContainer>
                 </ContentRight>
             </ContentPage>

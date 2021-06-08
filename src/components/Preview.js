@@ -34,7 +34,7 @@ const ContainerRight = styled.div`
     padding-left: 18px;
 
     display: grid;
-    grid-template-rows: 35px auto auto 60px;
+    grid-template-rows: 35px auto 60px;
 
     a {
         outline: none;
@@ -71,6 +71,13 @@ const Tag = styled.div`
     cursor: pointer;
 `;
 
+const ContainerText = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+`;
+
 const Title = styled.h1`
     font-family: 'Montserrat';
     font-weight: 600;
@@ -82,7 +89,6 @@ const Title = styled.h1`
 
 const Content = styled.div`
     outline: none;
-    max-height: 150px;
     
     p {
         margin: 0;
@@ -113,9 +119,12 @@ const Preview = ({ post }) => (
                     <Link to={`/tags/${tag.id}`}><Tag id={tag.id}>{tag.name}</Tag></Link>
                 ))}
             </ContainerTags>
-                
-            <Link to={`/publicacoes/${post.url_link}`}><Title>{post.name}</Title></Link>
-            <Content dangerouslySetInnerHTML={{ __html: post.content }}></Content>
+
+            <ContainerText>    
+                <Link to={`/publicacoes/${post.url_link}`}><Title>{post.name}</Title></Link>
+                <Content dangerouslySetInnerHTML={{ __html: post.content }}></Content>
+            </ContainerText>
+
             <ContainerInfo>
                 <Link to={`/publicacoes/${post.url_link}`}><ButtonWhite>LEIA MAIS</ButtonWhite></Link>
                 <Icon image={heart_icon}>{post.likes}</Icon>
