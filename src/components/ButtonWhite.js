@@ -18,7 +18,7 @@ const Button = styled.button`
     border: 2px solid ${config.colors.primaryBorder};
 `;
 
-const ButtonWhite = ({ children, onClick=null, disabled=false }) => {
+const ButtonWhite = ({ children, onClick=undefined, disabled=false }) => {
     return (
         <Button
             onClick={onClick}

@@ -116,7 +116,7 @@ const Preview = ({ post }) => (
                 <p><i>Tags:</i></p>
                 {post.tags.map(tag => (
                     // colocar para o link de busca com query parameters
-                    <Link to={`/tags/${tag.id}`}><Tag id={tag.id}>{tag.name}</Tag></Link>
+                    <Link key={tag.id} to={`/tags/${tag.id}`}><Tag>{tag.name}</Tag></Link>
                 ))}
             </ContainerTags>
 

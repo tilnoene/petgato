@@ -18,7 +18,7 @@ const Button = styled.button`
     background-color: ${config.colors.primaryTitle};
 `;
 
-const ButtonPink = ({ children, onClick=null, disabled=false }) => {
+const ButtonPink = ({ children, onClick=undefined, disabled=false }) => {
     return (
         <Button
             onClick={onClick}

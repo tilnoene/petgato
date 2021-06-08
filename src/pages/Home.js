@@ -161,7 +161,7 @@ const Home = () => {
             name: 'Cães & Gatos'
         }]
     }, {
-        id: 1,
+        id: 2,
         name: 'Lê aqui em baixo',
         content: '<p>Lê a barra de pesquisa</p>',
         views: 20,
@@ -216,7 +216,7 @@ const Home = () => {
                     <SubTitle>Seja bem-vinda(o) ao blog PetGatô! Confira nosso conteúdo mais recente:</SubTitle>
 
                     <PreviewContainer>
-                        {posts.map(post => <Preview post={post} />)}
+                        {posts.map(post => <Preview key={post.id} post={post} />)}
                     </PreviewContainer>
                 </ContentRight>
             </ContentPage>

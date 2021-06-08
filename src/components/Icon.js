@@ -24,7 +24,7 @@ const ContainerIcon = styled.div`
 
 const Icon = ({ children, image }) => (
     <ContainerIcon>
-        <img src={image} />
+        <img src={image} alt='Icon Logo' />
         <p>{children}</p>
     </ContainerIcon>
 );

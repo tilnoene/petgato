@@ -24,6 +24,11 @@ const Input = styled.input`
         border-color: ${config.colors.primaryTitle};
         transition-delay: 0.1s;
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: rgb(0, 0, 0, 0.1);
+    }
 `;
 
 const Label = styled.label`
@@ -31,9 +36,13 @@ const Label = styled.label`
     position: relative;
     font-size: 14px;
     padding-top: 20px;
-    margin-bottom: 5px;
-    cursor: text;     
+    margin-bottom: 5px;     
     user-select: none; 
+
+    cursor: text;
+    & input:disabled + span {
+        cursor: not-allowed;
+    }
 
     & input:valid + span,
     & input:focus + span {
@@ -77,7 +86,7 @@ const Icon = styled.img`
     -ms-user-select: none;
 `;
 
-const InputText = ({ name='', value='', maxLength=32, onChange=null, onClick=null, disabled=false, password=false, search=false, width=null, labelColor=null }) => {
+const InputText = ({ name='', value='', maxLength=32, onChange=undefined, onClick=undefined, disabled=false, password=false, search=false, width=null, labelColor=null }) => {
     const [showPassword, setShowPassword] = useState(false);
     
     return (
@@ -101,7 +110,7 @@ const InputText = ({ name='', value='', maxLength=32, onChange=null, onClick=nul
             {search && (
                 <Icon 
                     src={search_icon} 
-                    onClick={onClick}
+                    onClick={disabled ? undefined : onClick}
                 />
             )}
         </Label>
