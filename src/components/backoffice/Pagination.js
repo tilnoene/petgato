@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import config from '../../config.json';
 
 const ContainerPagination = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+`;
+
+const ContentPagination = styled.div`
     width: 200px;
     height: 40px;
 
@@ -39,41 +45,49 @@ const Pagination = ({ currentPage=1, totalPages=3, prevPage=undefined, nextPage=
     
     if (currentPage === 1) return (
         <ContainerPagination>
-            <Button disabled>«</Button>
-            <Button selected>1</Button>
-            <Button disabled={!(totalPages >= 2)}>2</Button>
-            <Button disabled={!(totalPages >= 3)}>3</Button>
-            <Button disabled={!(totalPages >= 2)} onClick={nextPage}>»</Button>
+            <ContentPagination>
+                <Button disabled>«</Button>
+                <Button selected>1</Button>
+                <Button disabled={!(totalPages >= 2)}>2</Button>
+                <Button disabled={!(totalPages >= 3)}>3</Button>
+                <Button disabled={!(totalPages >= 2)} onClick={nextPage}>»</Button>
+            </ContentPagination>
         </ContainerPagination>
     );
 
     if (currentPage === 2) return (
         <ContainerPagination>
-            <Button onClick={prevPage}>«</Button>
-            <Button onClick={prevPage}>1</Button>
-            <Button selected>2</Button>
-            <Button disabled={!(totalPages >= 3)} onClick={nextPage}>3</Button>
-            <Button disabled={!(totalPages >= 3)} onClick={nextPage}>»</Button>
+            <ContentPagination>
+                <Button onClick={prevPage}>«</Button>
+                <Button onClick={prevPage}>1</Button>
+                <Button selected>2</Button>
+                <Button disabled={!(totalPages >= 3)} onClick={nextPage}>3</Button>
+                <Button disabled={!(totalPages >= 3)} onClick={nextPage}>»</Button>
+            </ContentPagination>
         </ContainerPagination>
     );
 
     if (currentPage === totalPages) return (
         <ContainerPagination>
-            <Button onClick={prevPage}>«</Button>
-            <Button onClick={specificPage}>{currentPage-2}</Button>
-            <Button onClick={prevPage}>{currentPage-1}</Button>
-            <Button selected>{currentPage}</Button>
-            <Button disabled>»</Button>
-        </ContainerPagination>
+            <ContentPagination>
+                <Button onClick={prevPage}>«</Button>
+                <Button onClick={specificPage}>{currentPage-2}</Button>
+                <Button onClick={prevPage}>{currentPage-1}</Button>
+                <Button selected>{currentPage}</Button>
+                <Button disabled>»</Button>
+            </ContentPagination>
+            </ContainerPagination>
     );
 
     return (
         <ContainerPagination>
-            <Button onClick={prevPage}>«</Button>
-            <Button onClick={prevPage}>{currentPage-1}</Button>
-            <Button selected>{currentPage}</Button>
-            <Button onClick={nextPage}>{currentPage+1}</Button>
-            <Button onClick={nextPage}>»</Button>
+            <ContentPagination>
+                <Button onClick={prevPage}>«</Button>
+                <Button onClick={prevPage}>{currentPage-1}</Button>
+                <Button selected>{currentPage}</Button>
+                <Button onClick={nextPage}>{currentPage+1}</Button>
+                <Button onClick={nextPage}>»</Button>
+            </ContentPagination>
         </ContainerPagination>
     );
 }

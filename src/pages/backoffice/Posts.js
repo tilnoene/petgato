@@ -183,15 +183,15 @@ const Posts = () => {
                             ))}
                         </tbody>
                     </Table>
+                    
+                    <Pagination 
+                        currentPage={page} 
+                        totalPages={totalPages}
+                        nextPage={() => setPage(page+1)}
+                        prevPage={() => setPage(page-1)}
+                    />
                 </ContentPage>
             )}
-
-            <Pagination 
-                currentPage={page} 
-                totalPages={totalPages}
-                nextPage={() => setPage(page+1)}
-                prevPage={() => setPage(page-1)}
-            />
 
             <Footer />
         </ContainerPage>
