@@ -20,6 +20,13 @@ const StyledFooter = styled.footer`
         font-size: 12px;
         height: 45px;
     }
+
+    a {
+        text-decoration: none;
+        padding-left: 5px;
+        color: white;
+        font-weight: 500;
+    }
 `;
 
 const CustomBr = styled.br`
@@ -32,7 +39,7 @@ const CustomBr = styled.br`
 
 const Footer = () => (
     <StyledFooter>
-        &copy; 2021 - Todos os direitos reservados. <CustomBr />Desenvolvido por Victor Manuel.
+        &copy; 2021 - Todos os direitos reservados. <CustomBr />Desenvolvido por <a href='https://github.com/tilnoene/' target='_blank' rel='noreferrer'>Victor Manuel</a>.
     </StyledFooter>
 );
 

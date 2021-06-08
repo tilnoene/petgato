@@ -1,5 +1,5 @@
-//import { useState } from 'react';
-import { BrowserRouter, Route, Switch/*, Redirect*/ } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import Login from '../pages/Login';
@@ -7,6 +7,8 @@ import SignUp from '../pages/SignUp';
 import Recovery from '../pages/Recovery';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+
+import Posts from '../pages/backoffice/Posts';
 
 /*
 const PrivateRoute = ({ component: Component, ... rest}) => {
@@ -22,10 +24,9 @@ const PrivateRoute = ({ component: Component, ... rest}) => {
         )} />
     );
 }
-
+*/
 const BackofficeRoute = ({ component: Component, ... rest}) => {
-    const [logged, setLogged] = useState(isAuthenticated().then(response => setLogged(response)));
-    const [admin, setAdmin] = useState(isAdmin().then(response => setAdmin(response)));
+    const logged = true, admin = true;
     
     return (
         <Route { ... rest} render={props => (
@@ -36,7 +37,7 @@ const BackofficeRoute = ({ component: Component, ... rest}) => {
             )
         )} />
     );
-}*/
+}
 
 const Routes = () => (
     <BrowserRouter>
@@ -47,6 +48,11 @@ const Routes = () => (
             <Route exact path='/recuperar-senha' component={() => <Recovery />} />
             <Route exact path='/sobre' component={() => <About />} />
             <Route exact path='/contato' component={() => <Contact />} />
+            
+            {/* BACKOFFICE */}
+            <BackofficeRoute exact path='/backoffice/publicacoes' component={() => <Posts />} />
+            
+
             {/*
             <Route exact path='/login' component={() => <Login />} />
             <Route exact path='/cadastro' component={() => <Cadastro />} />
