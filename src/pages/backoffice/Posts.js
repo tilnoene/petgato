@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import config from '../../config.json';
 
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingCat from '../../components/LoadingCat';
 import Title from '../../components/backoffice/Title';
 import SubTitle from '../../components/backoffice/SubTitle';
 import Table from '../../components/backoffice/Table';
@@ -37,6 +38,15 @@ const ContentPage = styled.div`
 `;
 
 const Posts = () => {
+    const [loading, setLoading] = useState(true);
+
+    const [page, setPage] = useState(1);
+    //const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        setLoading(false);
+    }, []);
+
     const posts = [{
         id: 1,
         name: 'Testando o título',
@@ -84,7 +94,7 @@ const Posts = () => {
         }]
     }, {
         id: 4,
-        name: 'Lê aqui em baixo nao porque carro helicoptero doze divigulad',
+        name: 'Lê aqui em baixo nao porque carro helicoptero divulgação',
         content: '<p>Lê a barra de pesquisa</p>',
         views: 20,
         likes: 13,
@@ -136,38 +146,44 @@ const Posts = () => {
     return (
         <ContainerPage>
             <Navbar backoffice currentPage={2} />
-            <ContentPage>
-                <div>
-                    <SubTitle>BACKOFFICE</SubTitle>
-                    <Title>Todas as publicações</Title>
-                </div>
 
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Data</th>
-                            <th>Título</th>
-                            <th>Tags</th>
-                            <th />
-                            <th />
-                        </tr>
-                    </thead>
+            {loading ? (
+                <LoadingCat />
+            ) : (
+                <ContentPage>
+                    <div>
+                        <SubTitle>BACKOFFICE</SubTitle>
+                        <Title>Todas as publicações</Title>
+                    </div>
 
-                    <tbody>
-                        {posts.map(post => (
-                            <tr key={post.id}>
-                                <td>{post.id}</td>
-                                <td>{convertDate(post.created_at)}</td>
-                                <td>{post.name}</td>
-                                <td>{convertTags(post.tags)}</td>
-                                <td><Link to={`/backoffice/editar-publicacao/${post.id}`}>Editar</Link></td>
-                                <td><a onClick={() => deletePost(post.id)}>Excluir</a></td>
+                    <Table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Data</th>
+                                <th>Título</th>
+                                <th>Tags</th>
+                                <th />
+                                <th />
                             </tr>
-                        ))}
-                    </tbody>
-                </Table>
-            </ContentPage>
+                        </thead>
+
+                        <tbody>
+                            {posts.map(post => (
+                                <tr key={post.id}>
+                                    <td>{post.id}</td>
+                                    <td>{convertDate(post.created_at)}</td>
+                                    <td>{post.name}</td>
+                                    <td>{convertTags(post.tags)}</td>
+                                    <td><Link to={`/backoffice/editar-publicacao/${post.id}`}>Editar</Link></td>
+                                    <td><a onClick={() => deletePost(post.id)}>Excluir</a></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </ContentPage>
+            )}
+
             <Footer />
         </ContainerPage>
     );

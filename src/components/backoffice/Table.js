@@ -36,8 +36,7 @@ const Table = styled.table`
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-
-        background-color: lightblue;
+        max-width: 200px;
     }
 
     tbody tr:nth-child(odd) {
