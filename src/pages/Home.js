@@ -6,6 +6,7 @@ import config from '../config.json';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Preview from '../components/Preview';
+import Line from '../components/Line';
 
 import profile_picture from '../assets/images/cintia_lorenzzo.jpg';
 import facebook_icon from '../assets/facebook-icon.svg';
@@ -39,7 +40,11 @@ const ContentPage = styled.div`
 const ContentLeft = styled.div`
     background-color: ${config.colors.primaryBackground || 'white'};
     padding: 0 25px;
-    border-right: 1px solid lightgray; 
+    border-right: 1px solid lightgray;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 `;
 
 const AboutAuthor = styled.div`
@@ -49,6 +54,7 @@ const AboutAuthor = styled.div`
     flex-direction: column;
     text-align: center;
     margin-top: 60px;
+    padding-bottom: 20px;
 
     h2 {
         font-family: 'Montserrat';
@@ -130,16 +136,26 @@ const PreviewContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     width: 96%;
     margin-top: 20px;
 `;
 
 const Home = () => {
     const temp = {
+        id: 1,
         name: 'Testando o título',
         content: '<p>Esse post é um <b>teste</b></p>',
-        views: 20
+        views: 20,
+        likes: 13,
+        comments: 17,
+        tags: [{
+            id: 1,
+            name: 'Cuidados'
+        }, {
+            id: 2,
+            name: 'Cães & Gatos'
+        }]
     };
 
     return (
@@ -162,8 +178,11 @@ const Home = () => {
                             <a href='https://instagram.com/tilnoene/' target='_blank' rel='noreferrer'><img src={instagram_icon} alt='Instagram Icon' /></a>
                             <a href='https://twitter.com/tilnoene/' target='_blank' rel='noreferrer'><img src={twitter_icon} alt='Twitter Icon' /></a>
                         </ContainerIcons>
-
                     </AboutAuthor>
+
+                    <Line />
+
+                    <SubTitle>Publicações mais populares:</SubTitle>
                 </ContentLeft>
 
                 <ContentRight>
