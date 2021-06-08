@@ -6,7 +6,8 @@ const Table = styled.table`
     font-family: 'Montserrat';
     font-size: 16px;
     border-collapse: collapse;
-    
+    color: ${config.colors.primaryText};
+
     thead {
         text-align: left;
         color: ${config.colors.primaryText};

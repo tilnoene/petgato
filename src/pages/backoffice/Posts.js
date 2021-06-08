@@ -9,6 +9,7 @@ import LoadingCat from '../../components/LoadingCat';
 import Title from '../../components/backoffice/Title';
 import SubTitle from '../../components/backoffice/SubTitle';
 import Table from '../../components/backoffice/Table';
+import Pagination from '../../components/backoffice/Pagination';
 
 import { convertDate, convertTags } from '../../services/functions';
 
@@ -41,6 +42,7 @@ const Posts = () => {
     const [loading, setLoading] = useState(true);
 
     const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(10);
     //const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -173,7 +175,7 @@ const Posts = () => {
                                 <tr key={post.id}>
                                     <td>{post.id}</td>
                                     <td>{convertDate(post.created_at)}</td>
-                                    <td>{post.name}</td>
+                                    <td><Link to={`/${post.url_link}`}>{post.name}</Link></td>
                                     <td>{convertTags(post.tags)}</td>
                                     <td><Link to={`/backoffice/editar-publicacao/${post.id}`}>Editar</Link></td>
                                     <td><a onClick={() => deletePost(post.id)}>Excluir</a></td>
@@ -183,6 +185,13 @@ const Posts = () => {
                     </Table>
                 </ContentPage>
             )}
+
+            <Pagination 
+                currentPage={page} 
+                totalPages={totalPages}
+                nextPage={() => setPage(page+1)}
+                prevPage={() => setPage(page-1)}
+            />
 
             <Footer />
         </ContainerPage>
