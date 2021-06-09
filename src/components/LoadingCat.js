@@ -7,6 +7,7 @@ const ContainerLoading = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 241px;
 `;
 
 const Loading = styled.img`

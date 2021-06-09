@@ -149,15 +149,15 @@ const Posts = () => {
         <ContainerPage>
             <Navbar backoffice currentPage={2} />
 
-            {loading ? (
-                <LoadingCat />
-            ) : (
-                <ContentPage>
-                    <div>
-                        <SubTitle>BACKOFFICE</SubTitle>
-                        <Title>Todas as publicações</Title>
-                    </div>
+            <ContentPage>
+                <div>
+                    <SubTitle>BACKOFFICE</SubTitle>
+                    <Title>Todas as publicações</Title>
+                </div>
 
+                {loading ? (
+                    <LoadingCat />
+                ) : ( 
                     <Table>
                         <thead>
                             <tr>
@@ -183,15 +183,17 @@ const Posts = () => {
                             ))}
                         </tbody>
                     </Table>
-                    
-                    <Pagination 
-                        currentPage={page} 
-                        totalPages={totalPages}
-                        nextPage={() => setPage(page+1)}
-                        prevPage={() => setPage(page-1)}
-                    />
-                </ContentPage>
-            )}
+                )}
+
+            <Pagination 
+                currentPage={page} 
+                totalPages={totalPages}
+                prevPage={() => setPage(page-1)}
+                nextPage={() => setPage(page+1)}
+                prev2Page={() => setPage(page-2)}
+                next2Page={() => setPage(page+2)}
+            />
+            </ContentPage>
 
             <Footer />
         </ContainerPage>

@@ -9,6 +9,10 @@ import About from '../pages/About';
 import Contact from '../pages/Contact';
 
 import Posts from '../pages/backoffice/Posts';
+import Users from '../pages/backoffice/Users';
+import Tags from '../pages/backoffice/Tags';
+import Reports from '../pages/backoffice/Reports';
+import Messages from '../pages/backoffice/Messages';
 
 /*
 const PrivateRoute = ({ component: Component, ... rest}) => {
@@ -51,8 +55,11 @@ const Routes = () => (
             
             {/* BACKOFFICE */}
             <BackofficeRoute exact path='/backoffice/publicacoes' component={() => <Posts />} />
+            <BackofficeRoute exact path='/backoffice/usuarios' component={() => <Users />} />
+            <BackofficeRoute exact path='/backoffice/tags' component={() => <Tags />} />
+            <BackofficeRoute exact path='/backoffice/denuncias' component={() => <Reports />} />
+            <BackofficeRoute exact path='/backoffice/mensagens' component={() => <Messages />} />
             
-
             {/*
             <Route exact path='/login' component={() => <Login />} />
             <Route exact path='/cadastro' component={() => <Cadastro />} />

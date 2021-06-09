@@ -41,15 +41,15 @@ const Button = styled.button`
     }
 `;
 
-const Pagination = ({ currentPage=1, totalPages=3, prevPage=undefined, nextPage=undefined, specificPage=undefined }) => {
+const Pagination = ({ currentPage=1, totalPages=3, prevPage=undefined, nextPage=undefined, prev2Page=undefined, next2Page=undefined }) => {
     
     if (currentPage === 1) return (
         <ContainerPagination>
             <ContentPagination>
                 <Button disabled>«</Button>
                 <Button selected>1</Button>
-                <Button disabled={!(totalPages >= 2)}>2</Button>
-                <Button disabled={!(totalPages >= 3)}>3</Button>
+                <Button disabled={!(totalPages >= 2)} onClick={nextPage}>2</Button>
+                <Button disabled={!(totalPages >= 3)} onClick={next2Page}>3</Button>
                 <Button disabled={!(totalPages >= 2)} onClick={nextPage}>»</Button>
             </ContentPagination>
         </ContainerPagination>
@@ -71,7 +71,7 @@ const Pagination = ({ currentPage=1, totalPages=3, prevPage=undefined, nextPage=
         <ContainerPagination>
             <ContentPagination>
                 <Button onClick={prevPage}>«</Button>
-                <Button onClick={specificPage}>{currentPage-2}</Button>
+                <Button onClick={prev2Page}>{currentPage-2}</Button>
                 <Button onClick={prevPage}>{currentPage-1}</Button>
                 <Button selected>{currentPage}</Button>
                 <Button disabled>»</Button>
