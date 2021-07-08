@@ -75,9 +75,10 @@ const Navbar = ({ currentPage=1, backoffice=false }) => {
                 <ContainerMenu>
                     <Option selected={currentPage === 1} ><Link to='/'>Página Inicial</Link></Option>
                     <Option selected={currentPage === 2} ><Link to='/backoffice/publicacoes'>Publicações</Link></Option>
-                    <Option selected={currentPage === 3} ><Link to='/backoffice/usuarios'>Usuários</Link></Option>
-                    <Option selected={currentPage === 4} ><Link to='/backoffice/denuncias'>Denúncias</Link></Option>
-                    <Option selected={currentPage === 5} ><Link to='/backoffice/mensagens'>Mensagens</Link></Option>
+                    <Option selected={currentPage === 3} ><Link to='/backoffice/tags'>Tags</Link></Option>
+                    <Option selected={currentPage === 4} ><Link to='/backoffice/usuarios'>Usuários</Link></Option>
+                    <Option selected={currentPage === 5} ><Link to='/backoffice/denuncias'>Denúncias</Link></Option>
+                    <Option selected={currentPage === 6} ><Link to='/backoffice/mensagens'>Mensagens</Link></Option>
                 </ContainerMenu>
             )}
             
