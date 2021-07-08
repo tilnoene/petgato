@@ -26,7 +26,7 @@ const Loading = styled.div`
 
 const ContentPage = styled.div`
     display: grid;
-    grid-template-columns: auto 275px;
+    grid-template-columns: auto 325px;
     padding: 20px 0;
 `;
 
@@ -275,6 +275,8 @@ const Post = () => {
                         />
 
                         <SubTitle>Explore essas tags:</SubTitle>
+                        
+                        <Line width='80%' />
 
                         <PopularPosts />
                     </ContentPage.Right>
