@@ -7,6 +7,7 @@ import SignUp from '../pages/SignUp';
 import Recovery from '../pages/Recovery';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+import Post from '../pages/Post';
 
 /*
 const PrivateRoute = ({ component: Component, ... rest}) => {
@@ -47,6 +48,7 @@ const Routes = () => (
             <Route exact path='/recuperar-senha' component={() => <Recovery />} />
             <Route exact path='/sobre' component={() => <About />} />
             <Route exact path='/contato' component={() => <Contact />} />
+            <Route exact path='/publicacao/:name' component={() => <Post />} />
             {/*
             <Route exact path='/login' component={() => <Login />} />
             <Route exact path='/cadastro' component={() => <Cadastro />} />

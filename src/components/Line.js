@@ -2,18 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContainerLine = styled.div`
-    width: 100%;
+    width: ${props => props.width || '100%'};
     height: 1px;
+    margin: auto;
 
-    div {
-        background-color: lightgray;
-        height: 1px;
-        margin: 0 20px;
-    }
+    background-color: ${props => props.color || 'lightgray'};
 `;
 
-const Line = () => (
-    <ContainerLine>
+const Line = ({ width, color=null }) => (
+    <ContainerLine width={width} color={color}>
         <div />
     </ContainerLine>
 );

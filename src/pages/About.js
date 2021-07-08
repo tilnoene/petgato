@@ -5,7 +5,7 @@ import config from '../config.json';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Title from '../components/Title';
-import Subtitle from '../components/Subtitle';
+import Subtitle from '../components/SubTitle';
 
 import facebook_icon from '../assets/facebook-icon.svg';
 import instagram_icon from '../assets/instagram-icon.svg';

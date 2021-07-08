@@ -6,7 +6,7 @@ import config from '../config.json';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import InputText from '../components/InputText';
-import Preview from '../components/Preview';
+import PreviewPost from '../components/PreviewPost';
 import Line from '../components/Line';
 
 import profile_picture from '../assets/images/cintia_lorenzzo.jpg';
@@ -36,13 +36,18 @@ const ContentPage = styled.div`
     padding: 20px 0;
 `;
 
-const ContentLeft = styled.div`
+ContentPage.Left = styled.div`
     padding: 0 25px;
     border-right: 1px solid lightgray;
 
     display: flex;
     flex-direction: column;
     gap: 20px;
+`;
+
+ContentPage.Right = styled.div`
+    background-color: ${config.colors.primaryBackground || 'white'};
+    padding: 0 25px;
 `;
 
 const AboutAuthor = styled.div`
@@ -105,11 +110,6 @@ const ContainerIcons = styled.div`
         height: 25px;
         cursor: pointer;
     }
-`;
-
-const ContentRight = styled.div`
-    background-color: ${config.colors.primaryBackground || 'white'};
-    padding: 0 25px;
 `;
 
 const Title = styled.h1`
@@ -180,7 +180,7 @@ const Home = () => {
         <ContainerPage>
             <Navbar />
             <ContentPage>
-                <ContentLeft>
+                <ContentPage.Left>
                     <InputText 
                         name=''
                         value={searchValue}
@@ -210,16 +210,16 @@ const Home = () => {
                     <Line />
 
                     <SubTitle>Publicações mais populares:</SubTitle>
-                </ContentLeft>
+                </ContentPage.Left>
 
-                <ContentRight>
+                <ContentPage.Right>
                     <Title>Miau!</Title>
                     <SubTitle>Seja bem-vinda(o) ao blog PetGatô! Confira nosso conteúdo mais recente:</SubTitle>
 
                     <PreviewContainer>
-                        {posts.map(post => <Preview key={post.id} post={post} />)}
+                        {posts.map(post => <PreviewPost key={post.id} post={post} />)}
                     </PreviewContainer>
-                </ContentRight>
+                </ContentPage.Right>
             </ContentPage>
             <Footer />
         </ContainerPage>

@@ -5,7 +5,7 @@ import config from '../config.json';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Title from '../components/Title';
-import Subtitle from '../components/Subtitle';
+import SubTitle from '../components/SubTitle';
 import InputText from '../components/InputText';
 import TextArea from '../components/TextArea';
 import ButtonWhite from '../components/ButtonWhite';
@@ -73,7 +73,7 @@ const Contact = () => {
                 <DogImage />
 
                 <ContainerRight>
-                    <Subtitle>FALE CONOSCO</Subtitle>
+                    <SubTitle>FALE CONOSCO</SubTitle>
                     <Title>Envie-nos uma mensagem de cão-tato</Title>
                     
                     <div>

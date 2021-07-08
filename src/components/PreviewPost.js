@@ -108,7 +108,7 @@ const ContainerInfo = styled.div`
     gap: 22px;
 `;
 
-const Preview = ({ post }) => (
+const PreviewPost = ({ post }) => (
     <ContainerPreview>
         <PostImage />
         <ContainerRight>
@@ -121,7 +121,7 @@ const Preview = ({ post }) => (
             </ContainerTags>
 
             <ContainerText>    
-                <Link to={`/publicacoes/${post.url_link}`}><Title>{post.name}</Title></Link>
+                <Link to={`/publicacao/${post.url_link}`}><Title>{post.name}</Title></Link>
                 <Content dangerouslySetInnerHTML={{ __html: post.content }}></Content>
             </ContainerText>
 
@@ -135,4 +135,4 @@ const Preview = ({ post }) => (
     </ContainerPreview>
 );
 
-export default Preview;
+export default PreviewPost;
